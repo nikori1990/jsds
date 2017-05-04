@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+		// 1、创建和初始化数组
+		var arr1 = new Array();
+		var arr2 = new Array(7);
+		var arr3 = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satruday');
+
+		// 使用new并不是最好的方式，使用[]就可以
+		var arr4 = [];
+		var arr5 = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satruday'];
+
+		console.log(arr5.length);  //7
+
+		for (var i = 0; i < arr5.length; i++) {
+			console.log(arr5[i]);
+		}
+
+		// 斐波那契
+		var fibonacci = [];
+		fibonacci[1] = 1;
+		fibonacci[2] = 2;
+
+		for (var i = 3; i < 20; i++) {
+			fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
+		}
+
+		for (var i = 0; i < fibonacci.length; i++) {
+			console.log(fibonacci[i]);
+		}
+
+	</script>
+</body>
+</html>

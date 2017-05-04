@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		// 2、添加和删除元素
+		var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+		// 把值赋给数组中最后一个空位上的元素
+		numbers[numbers.length] = 10;
+		console.log(numbers);  // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+		numbers.push(11);
+		numbers.push(12, 13);
+		console.log(numbers);  // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+		// 腾出第一个元素的位置，把所有元素向右移一个
+		for (var i = numbers.length; i >= 0; i--) {
+			numbers[i] = numbers[i-1];
+		}
+		numbers[0] = -1;
+		console.log(numbers); // [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+		// unshift : 把数值插入数组的首位
+		numbers.unshift(-2);
+		numbers.unshift(-4, -3);
+		console.log(numbers); // [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+		// pop : 删除数组最后一个元素
+		numbers.pop();
+		console.log(numbers); // [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+		// 删除数组第一个元素
+		for (var i = 0; i < numbers.length; i++) {
+			numbers[i] = numbers[i+1];
+		}
+		console.log(numbers); //[-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, undefined]
+
+		// shift : 删除第一个元素
+		numbers.shift();
+		console.log(numbers); //[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, undefined]
+
+		// splice : 1、删除或插入的元素的索引值 2、删除元素的个数(0标示添加元素) 3、第三个参数往后，添加到数组里的值
+		numbers.splice(5, 3); //从数组索引 5 开始删除 3 个元素 (numbers[5], numbers[6], numbers[7])
+		console.log(numbers); //[-2, -1, 0, 1, 2, 6, 7, 8, 9, 10, 11, 12, undefined]
+
+		numbers.splice(5, 0, 3, 4, 5); // 从数组索引 5 开始添加 3 个元素 (3， 4， 5)
+		console.log(numbers); // [-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, undefined]
+
+		numbers.splice(5, 3, 3, 4, 5); // 从索引5开始删除了3个元素， 又从5开始添加了元素(3, 4, 5)
+		console.log(numbers); // [-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, undefined]
+
+
+	</script>
+</body>
+</html>

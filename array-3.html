@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+		// 3、迭代器
+		var isEven = function(x) {
+			console.log(x);
+			return (x % 2 == 0); //返回偶数
+		}
+
+		var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+		// every
+		// numbers的第一元素是1， 不是2的倍数， 因此isEven返回false， 然后every执行结束
+		numbers.every(isEven);  // 1
+
+		// some
+		//numbers的第二元素是2， 是2的倍数， 因此isEven返回true， 然后some执行结束
+		numbers.some(isEven);  // 1, 2
+
+		numbers.forEach(function(x){
+			console.log(x % 2 == 0); // false true false true ……
+		});
+
+		 // map 
+		var myMap = numbers.map(isEven);
+		console.log(myMap); // [false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
+
+		// filter
+		var everyNumbers = numbers.filter(isEven);
+		console.log(everyNumbers); // [2, 4, 6, 8, 10, 12, 14]
+
+		// reduce
+		var sum = numbers.reduce(function(previous, current, index){
+			return previous + current;
+		});
+
+		console.log(sum); //120
+
+	</script>
+</body>
+</html>
